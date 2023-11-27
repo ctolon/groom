@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  groom-grpc:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PYTHON_VERSION=3.10.2
+    container_name: ${GROOM_GRPC_SERVICE_NAME}
+    image: '${GROOM_GRPC_SERVICE_IMAGE}:${GROOM_GRPC_SERVICE_VERSION}'
+    hostname: ${GROOM_GRPC_SERVICE_NAME}
+    stdin_open: true
+    tty: true
+    #environment:
+    #  - PYTHONPATH=${APP_VOL}
+    env_file:
+      - .env
+    #volumes:
+    #  - ./app/cache:/root/.cache
+    #  - ./app/:/GROOM_vol/
+    working_dir: ${APP_VOL}
+    restart: unless-stopped
+    network_mode: host
+    deploy:
+      resources:
+        limits:
+          memory: "14g"
+    command: python3 ${APP_VOL}/server.py
+    # command: /bin/bash

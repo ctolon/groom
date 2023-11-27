@@ -1,0 +1,33 @@
+# Restful
+fastapi==0.83
+uvicorn==0.16.0 # 0.17 on prod
+sse-starlette==0.10.3
+httpcore==0.9.1 # 1.0.2
+httpx==0.13.3
+
+# GRPC
+grpcio-tools==1.48.2
+
+# DB
+elasticsearch==7.17.4
+mysql-connector-python==8.0.22
+couchbase==3.0.7
+redis
+
+# Scrape
+bs4==0.0.1
+beautifulsoup4==4.8.1
+
+# Utils
+unicode_tr==0.6.1
+python-dateutil==2.8.0
+memory_profiler==0.61.0
+cachetools==4.1.0
+# dnspython==2.3.0 # for fixing httpx issue
+
+# ML
+tensorboard==1.13.1
+tensorflow==1.13.1
+tensorflow-estimator==1.13.0
+protobuf==3.19.0
+
